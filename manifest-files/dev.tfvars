@@ -1,6 +1,6 @@
 location = "uksouth"
-rg_name = "terraform-rg-dev"
-vnet_name = "terraform-vnet-dev"
+rg_name = "terraform-rg"
+vnet_name = "terraform-vnet"
 vnet_cidr = "10.0.0.0/16"
 public_subnets = ["10.0.1.0/24", "10.0.2.0/24"]
 private_web_subnets = ["10.0.3.0/24", "10.0.4.0/24"]

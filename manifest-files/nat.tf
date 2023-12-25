@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 resource "azurerm_public_ip" "terraform_public_ip" {
   count               = length(var.public_subnets)
-  name                = "terraform-PIP-${count.index + 1}"
+  name                = "terraform-PIP-${count.index + 1}-${var.environment}"
   location            = azurerm_resource_group.terraform_rg.location
   resource_group_name = azurerm_resource_group.terraform_rg.name
   allocation_method   = "Static"
@@ -15,7 +15,7 @@ resource "azurerm_public_ip" "terraform_public_ip" {
 ////////////////////////////////////////////////////////
 resource "azurerm_nat_gateway" "nat_gateway" {
   count                   = length(var.public_subnets)
-  name                    = "nat-gateway-${count.index + 1}"
+  name                    = "nat-gateway-${count.index + 1}-${var.environment}"
   location                = azurerm_resource_group.terraform_rg.location
   resource_group_name     = azurerm_resource_group.terraform_rg.name
   sku_name                = "Standard"

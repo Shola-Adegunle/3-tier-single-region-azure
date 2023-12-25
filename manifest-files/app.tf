@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////
 resource "azurerm_linux_virtual_machine_scale_set" "app_servers" {
   count               = length(var.availability_zones) #* desired_instance_per_zone # length(var.private_app_subnets) * length(var.availability_zones) # Number of VM instances in the VMSS
-  name                = "app-vmss-${count.index + 4  }"                                                    # Name of the VMSS
+  name                = "app-vmss-${count.index + 4}-${var.environment}"                                                    # Name of the VMSS
   resource_group_name = azurerm_resource_group.terraform_rg.name                         # Resource group for the VMSS
   location            = azurerm_resource_group.terraform_rg.location                     # Location for the VMSS
   sku                 = "Standard_F2"                                                    # VM SKU
